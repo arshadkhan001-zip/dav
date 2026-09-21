@@ -5,6 +5,7 @@ import { Section } from "../components/ui/Section";
 import { Eyebrow } from "../components/ui/Eyebrow";
 import { Breadcrumbs } from "../components/ui/Breadcrumbs";
 import { Reveal } from "../components/ui/Reveal";
+import { asset } from "../utils/asset";
 
 /**
  * STAGE 11 — Faculty & Staff page.
@@ -51,8 +52,8 @@ export function FacultyPage() {
               />
               <div className="relative overflow-hidden rounded-md border border-line bg-paper-2 shadow-lifted">
                 <img
-                  src="/images/principal-880.jpg"
-                  srcSet="/images/principal-480.jpg 480w, /images/principal-880.jpg 880w"
+                  src={asset("/images/principal-880.jpg")}
+                  srcSet={`${asset("/images/principal-480.jpg")} 480w, ${asset("/images/principal-880.jpg")} 880w`}
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   width={595}
                   height={337}

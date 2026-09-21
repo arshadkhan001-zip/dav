@@ -4,6 +4,7 @@ import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { ADMISSIONS_CTA, MORE_LINKS, PRIMARY_NAV, SECONDARY_NAV } from "../../data/navigation";
 import { SCHOOL } from "../../data/school";
 import { cx } from "../../utils/cx";
+import { asset } from "../../utils/asset";
 import { MOTION } from "../../utils/motion";
 
 interface MobileDrawerProps {
@@ -98,7 +99,7 @@ export function MobileDrawer({ open, onClose, returnFocusRef }: MobileDrawerProp
               <div className="flex items-center justify-between border-b border-line px-5 py-4">
                 <p className="flex min-w-0 items-center gap-2.5 font-display text-base font-medium text-navy-900">
                   <img
-                    src="/images/logo.png"
+                    src={asset("/images/logo.png")}
                     alt=""
                     width={150}
                     height={122}

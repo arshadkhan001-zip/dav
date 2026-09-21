@@ -6,6 +6,8 @@
  * Image: real campus photograph (Dayanand Vatika) sourced from the
  * school's existing website slider; recompressed locally (89KB / 54KB).
  */
+import { asset } from "../utils/asset";
+
 export interface HeroImage {
   src: string;
   srcSet: string;
@@ -13,12 +15,11 @@ export interface HeroImage {
   caption: string;
 }
 
-const wing = (id: string, alt: string, caption: string): HeroImage => ({
-  src: `/images/${id}-1400.jpg`,
-  srcSet: `/images/${id}-900.jpg 900w, /images/${id}-1400.jpg 1400w`,
-  alt,
-  caption,
-});
+const wing = (id: string, alt: string, caption: string): HeroImage => {
+  const src = asset(`/images/${id}-1400.jpg`);
+  const small = asset(`/images/${id}-900.jpg`);
+  return { src, srcSet: `${small} 900w, ${src} 1400w`, alt, caption };
+};
 
 export const HERO = {
   eyebrow: "DAV Police Public School · Panipat",

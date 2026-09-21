@@ -1,3 +1,5 @@
+import { asset } from "../utils/asset";
+
 /**
  * Gallery data — album covers from the reference Photo Gallery
  * (/Full/Photo/all), downloaded and recompressed locally.
@@ -19,8 +21,8 @@ function item(id: string, title: string, w: number, h: number): GalleryImage {
   return {
     id,
     title,
-    thumb: `/images/gallery/${id}-480.jpg`,
-    full: `/images/gallery/${id}-1000.jpg`,
+    thumb: asset(`/images/gallery/${id}-480.jpg`),
+    full: asset(`/images/gallery/${id}-1000.jpg`),
     width: w,
     height: h,
     alt: `${title} — DAV Police Public School, Panipat`,

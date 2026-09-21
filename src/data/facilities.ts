@@ -6,6 +6,8 @@
  * No counts, capacities or equipment claims beyond the source wording.
  */
 
+import { asset } from "../utils/asset";
+
 export type FacilityCategory =
   | "Laboratories"
   | "Library"
@@ -31,8 +33,8 @@ export interface FacilityDocument {
 }
 
 const photo = (id: string, alt: string) => ({
-  imageThumb: `/images/campus/${id}-480.jpg`,
-  imageFull: `/images/campus/${id}-880.jpg`,
+  imageThumb: asset(`/images/campus/${id}-480.jpg`),
+  imageFull: asset(`/images/campus/${id}-880.jpg`),
   imageAlt: `${alt} — DAV Police Public School, Panipat`,
 });
 

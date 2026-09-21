@@ -2,14 +2,17 @@
  * Principal's message — transcribed from the school's "From Principal's Desk"
  * page (davppspanipat.com). Reproduced faithfully; nothing rewritten.
  */
+
+import { asset } from "../utils/asset";
+
 export const PRINCIPAL_MESSAGE = {
   eyebrow: "From the Principal's Desk",
   name: "Ms. Sumita Arora",
   role: "Principal",
   qualifications: "M.Sc Geography, M.Ed, M.Phil (Geography), UGC NET",
   photo: {
-    src: "/images/principal-880.jpg",
-    srcSet: "/images/principal-480.jpg 480w, /images/principal-880.jpg 880w",
+    src: asset("/images/principal-880.jpg"),
+    srcSet: `${asset("/images/principal-480.jpg")} 480w, ${asset("/images/principal-880.jpg")} 880w`,
     sizes: "(max-width: 1024px) 100vw, 55vw",
     width: 595,
     height: 337,

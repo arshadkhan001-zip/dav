@@ -4,6 +4,7 @@ import { ADMISSIONS_CTA, PRIMARY_NAV, SECONDARY_NAV } from "../../data/navigatio
 import { SCHOOL } from "../../data/school";
 import { useScrolled } from "../../hooks/useScrolled";
 import { cx } from "../../utils/cx";
+import { asset } from "../../utils/asset";
 import { NavDropdown } from "./NavDropdown";
 
 // Drawer (and framer-motion with it) split into a separate chunk — loaded only
@@ -85,7 +86,7 @@ export function SiteHeader() {
             aria-label={`${SCHOOL.name}, ${SCHOOL.place} — home`}
           >
             <img
-              src="/images/logo.png"
+              src={asset("/images/logo.png")}
               alt="DAV College Managing Committee crest"
               width={150}
               height={122}
