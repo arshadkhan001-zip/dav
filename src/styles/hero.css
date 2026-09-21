@@ -1,0 +1,86 @@
+/*
+ * STAGE 3 — hero entrance system (CSS-only, zero JS cost).
+ * Staggered via --hero-delay custom property.
+ * Default state is VISIBLE — animations enhance; reduced-motion shows instantly.
+ */
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-line {
+  from {
+    transform: translateY(112%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-frame {
+  from {
+    opacity: 0;
+    clip-path: inset(6% 4% 6% 4%);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes hero-img {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-enter {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--hero-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-line-inner {
+  display: block;
+  animation: hero-line 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--hero-delay, 0s);
+  will-change: transform;
+}
+
+.hero-frame {
+  animation: hero-frame 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: var(--hero-delay, 0s);
+  will-change: opacity, clip-path;
+}
+
+.hero-frame img {
+  animation: hero-img 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  will-change: transform;
+}
+
+/* Fill mode is `backwards` (not `both`) on purpose: after the entrance
+ * finishes, no fill persists, so scroll-linked inline transforms apply
+ * cleanly. Final keyframes equal resting state, so visuals are identical. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-line-inner,
+  .hero-frame,
+  .hero-frame img {
+    animation: none;
+  }
+}
